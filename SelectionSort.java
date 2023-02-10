@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.util.Random;
 
-class SelectionSort {
+public class SelectionSort {
     public static void main(String[] args) {
         int arrayLength = 100;
         int [] nums = new int [arrayLength];
