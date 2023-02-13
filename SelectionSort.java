@@ -1,12 +1,19 @@
 import java.util.Arrays;
 import java.util.Random;
+import java.util.Scanner;
 
 public class SelectionSort {
     public static void main(String[] args) {
-        int arrayLength = 100;
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Input an integer, n, for the array length. \n");
+        System.out.print("n = ");
+        int arrayLength = scan.nextInt();
         int [] nums = new int [arrayLength];
+        System.out.println("Input an integer, x, where all array values will be from [-x + 1, x - 1]. \n");
+        System.out.print("x = ");
+        int range = scan.nextInt();
         
-        generateRandom(nums);
+        generateRandom(nums, range);
         System.out.println("Unsorted: "+ Arrays.toString(nums)+"\n\n");
         selectionSort(nums);
         System.out.println("Sorted: "+ Arrays.toString(nums));
@@ -26,10 +33,10 @@ public class SelectionSort {
         }
     }
     
-    public static void generateRandom(int [] nums) {
+    public static void generateRandom(int [] nums, int range) {
         Random rd = new Random();
         for (int i = 0; i < nums.length; i++) {
-            nums[i] = rd.nextInt();
+            nums[i] = rd.nextInt()%range;
         }
     }
 }
