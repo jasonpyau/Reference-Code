@@ -21,14 +21,13 @@ public class GCDCalculator {
             return;
         }
         int gcd = gcd(a, b);
-        System.out.println("\nThe gcd of "+a+" and "+b+" is "+gcd+".");
+        System.out.println("\nThe GCD of "+a+" and "+b+" is "+gcd+".");
     }
     
     public static int gcd(int a, int b) {
         int r = a % b;
         if (r == 0) 
             return b;
-        b = gcd(b, r);
-        return b;
+        return gcd(b, r);
     }
 }
