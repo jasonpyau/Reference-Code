@@ -1,3 +1,4 @@
+import java.util.Scanner;
 public class LinkedList {
     Node head;
     
@@ -95,12 +96,61 @@ public class LinkedList {
     
     public static void main(String [] args) {
         LinkedList list = new LinkedList();
-        list.add(10);
-        list.add(25);
-        list.add(17, 1);
-        list.print();
-        list.remove(1);
-        list.print();
-        System.out.println("Index 1: "+list.get(1));
+        if (args.length > 0) {
+            for (String arg : args)
+                list.add(Integer.parseInt(arg));
+        }
+        System.out.println("Input an integer:");
+        Scanner scan = new Scanner(System.in);
+        int input;
+        while (true) {
+            System.out.println("1. Add item");
+            System.out.println("2. Remove item");
+            System.out.println("3. Get item");
+            System.out.println("4. Print LinkedList");
+            System.out.println("5. Exit program");
+            System.out.print("\nInput: ");
+            input = scan.nextInt();
+            switch (input) {
+                case 1:
+                    System.out.println("Input an value.");
+                    System.out.print("\nInput: ");
+                    int data = scan.nextInt();
+                    System.out.println("Input an index, or -1 for end of LinkedList.");
+                    System.out.print("\nInput: ");
+                    int index = scan.nextInt();
+                    if (index == -1)
+                        list.add(data);
+                    else 
+                        list.add(data, index);
+                    break;
+                case 2:
+                    System.out.println("Input an index.");
+                    System.out.print("\nInput: ");
+                    index = scan.nextInt();
+                    list.remove(index);
+                    break;
+                case 3:
+                    System.out.println("Input an index.");
+                    System.out.print("\nInput: ");
+                    index = scan.nextInt();
+                    System.out.println("\n\nItem at index "+index+": "+list.get(index));
+                    System.out.println("\nPress enter to continue.");
+                    scan.nextLine();
+                    scan.nextLine();
+                    break;
+                case 4:
+                    System.out.println("\n");
+                    list.print();
+                    System.out.println("\nPress enter to continue.");
+                    scan.nextLine();
+                    scan.nextLine();
+                    break;
+                case 5:
+                    return;
+                default:
+                    System.out.println("Invalid input.");
+            }
+        }
     }
 }
