@@ -6,9 +6,17 @@ typedef struct node {
     struct node* next;
 } node;
 
+node* initHead(int data) {
+    node* head = NULL;
+    head = (node*)malloc(sizeof(node));
+    head->value = data;
+    head->next = NULL;
+    return head;
+}
+
 void print(node* head) {
     node* next = head;
-    while(next != NULL) {
+    while(next->next != NULL) {
         printf("%d -> ", next->value);
         next = next->next;
     }
@@ -17,10 +25,10 @@ void print(node* head) {
 
 void tailInsert(int data, node* head) {
     node* next = head;
-    if (head->value == NULL) {
-        head->value = data;
+    if (head == NULL) {
         return;
     }
+    int i = 0;
     while (next->next != NULL) {
         next = next->next;
     }
@@ -31,8 +39,7 @@ void tailInsert(int data, node* head) {
 }
 
 int main() {
-    node *head = NULL;
-    head = (node*)malloc(sizeof(node));
+    node *head = initHead(5);
     tailInsert(20, head);
     tailInsert(25, head);
     tailInsert(27, head);
