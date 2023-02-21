@@ -146,7 +146,7 @@ void remove_at(int index, node* head) {
     }
 }
 
-// Deletes given node from Linked List, frees the memory, and returns value of deleted node.
+// Helper method to delete given node from Linked List, frees the memory, and returns value of deleted node.
 int delete_node(node* current, node* next) {
     node* old = current->next;
     int oldValue = old->value;
