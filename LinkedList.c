@@ -14,12 +14,12 @@ node* init_head(int data) {
     return head;
 }
 
-node* createNode(int data, node* current, node* next) {
-    node* newNode = (node*)malloc(sizeof(node));
-    newNode->value = data;
-    newNode->next = next;
-    current->next = newNode;
-    return newNode;
+node* create_node(int data, node* current, node* next) {
+    node* new_node = (node*)malloc(sizeof(node));
+    new_node->value = data;
+    new_node->next = next;
+    current->next = new_node;
+    return new_node;
 }
 
 void print(node* head) {
@@ -35,7 +35,7 @@ void head_insert(int data, node* head) {
     if (head == NULL) {
         return;
     }
-    node* next = createNode(head->value, head, head->next);
+    node* next = create_node(head->value, head, head->next);
     head->value = data;
     head->next = next;
 }
@@ -45,13 +45,13 @@ void tail_insert(int data, node* head) {
         return;
     }
     if (head->next == NULL) {
-        createNode(data, head, NULL);
+        create_node(data, head, NULL);
     }
     node* current = head;
     while (current->next != NULL) {
         current = current->next;
     }
-    createNode(data, current, NULL);
+    create_node(data, current, NULL);
 }
 
 void delete_list(node* head) {
