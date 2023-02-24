@@ -11,40 +11,40 @@ public class ArrayList {
     }
     
     public void add(int value) {
-        if (this.size >= capacity) {
+        if (size >= capacity) {
             expandList();
         }
-        this.array[this.size] = value;
+        array[size] = value;
         this.size++;
     }
     
     public int get(int index) {
-        if (index >= 0 && index < this.size)
+        if (index >= 0 && index < size)
             return array[index];
         printError();
         return 0;
     }
     
     public void set(int index, int value) {
-        if (index < 0 || index >= this.size) {
+        if (index < 0 || index >= size) {
             printError();
             return;
         }
-            this.array[index] = value;
+            array[index] = value;
     }
     
     public int remove(int index) {
-        if (index < 0 || index >= this.size) {
+        if (index < 0 || index >= size) {
             printError();
             return 0;
         }
         int removedItem = array[index];
-        if (index == this.capacity-1) {
+        if (index == capacity-1) {
             this.size--;
             return removedItem;
         }
-        for (int i = index+1; i < this.size; i++) {
-            this.array[i-1] = array[i];
+        for (int i = index+1; i < size; i++) {
+            array[i-1] = array[i];
         }
         this.size--;
         return removedItem;
@@ -61,10 +61,10 @@ public class ArrayList {
     }
     
     private void expandList() {
-        this.capacity *= 2;
-        int [] newArr = new int[this.capacity];
+        capacity *= 2;
+        int [] newArr = new int[capacity];
         for (int i = 0; i < size; i++)
-            newArr[i] = this.array[i];
+            newArr[i] = array[i];
         this.array = newArr;
     }
     
