@@ -53,7 +53,8 @@ public class ArrayList {
     public void print() {
         System.out.print("[");
         for (int i = 0; i < size; i++) 
-            System.out.print(array[i] + ((i == size-1) ? "]\n" : ", "));
+            System.out.print(array[i] + ((i == size-1) ? "" : ", "));
+        System.out.println("]");
     }
     
     public int size() {
