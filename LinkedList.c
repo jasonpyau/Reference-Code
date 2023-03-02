@@ -252,7 +252,7 @@ int main(void) {
     print_list(list);
     printf("Removed Index 1: %d\n", remove_at(1, list));
     printf("Removed Index 0: %d\n", remove_at(0, list));
-    printf("Removed Index 3: %d\n", remove_at(2, list));
+    printf("Removed Index 2: %d\n", remove_at(2, list));
     print_list(list);
     insert_head(1, list);
     insert_at(2, 23, list);
