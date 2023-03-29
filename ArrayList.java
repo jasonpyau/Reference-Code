@@ -12,8 +12,13 @@ public class ArrayList <T> {
     
     public ArrayList(int capacity) {
         this.size = 0;
-        this.capacity = capacity;
+        this.capacity = (capacity > 0) ? capacity : 1;
         this.array = new Object[capacity];
+    }
+    
+    public ArrayList(T[] arr) {
+        this(arr.length);
+        addAll(arr);
     }
     
     public void add(T value) {
@@ -150,12 +155,10 @@ public class ArrayList <T> {
         System.out.println("\n2D String ArrayList:");
         ArrayList<ArrayList<String>> list3 = new ArrayList<>();
         list3.add(list2);
-        ArrayList<String> list4 = new ArrayList<>();
-        String[] array4 = {"ArrayList", "by", "Jason", "Yau"};
+        ArrayList<String> list4 = new ArrayList<>(new String[] {"ArrayList", "by", "Jason", "Yau"});
         ArrayList<String> list5 = new ArrayList<>();
         list3.add(list4);
         list3.add(list5);
-        list4.addAll(array4);
         list4.add(1, "implementation");
         System.out.println(list3);
         System.out.println("List size: "+list3.size());
