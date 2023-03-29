@@ -1,6 +1,6 @@
 import java.lang.StringBuilder;
 
-public class ArrayList<T> {
+public class ArrayList <T> {
     private Object[] array;
     private int size;
     private int capacity;
